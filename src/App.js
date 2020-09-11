@@ -1,26 +1,39 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import {makeStyles} from "@material-ui/styles"
+import Header from "./components/Header"
+import Title from "./components/Title"
+import { Route, BrowserRouter,Switch} from "react-router-dom"
+import NavBar from "./components/NavBar"
+import Button from "@material-ui/core/Button"
+
+
+const useStyles = makeStyles({
+
+  root: {
+  
+      
+  },
+  button: {
+    maxWidth: '300px'
+  }
+
+})
 
 function App() {
+  const classes = useStyles()
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <div>
+        <Header />
+        <Title />
+        <NavBar />
+      </div>
+      <div style={{margin: '0 auto',marginTop: '50px',width: '100%',display: 'flex', width: '40%',justifyContent: 'center'}}>
+        <Button className={classes.button} variant="contained" color="primary">Detailed Overview</Button>
+      </div>
     </div>
   );
+
 }
 
 export default App;
